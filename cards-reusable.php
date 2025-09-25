@@ -114,22 +114,37 @@ class ReusableCards {
         }
 
         ob_start();
-        echo '<div class="cards-grid">';
-        while ($query->have_posts()) : $query->the_post();
-            $icon     = get_post_meta(get_the_ID(), '_card_icon', true);
-            $subtitle = get_post_meta(get_the_ID(), '_card_subtitle', true);
-            $color    = get_post_meta(get_the_ID(), '_card_color', true);
-            ?>
-            <div class="card-item" style="background:<?php echo esc_attr($color ? $color : '#fafafa'); ?>;">
-                <div class="card-icon"><?php echo esc_html($icon); ?></div>
-                <h3 class="card-title"><?php the_title(); ?></h3>
-                <?php if ($subtitle): ?>
-                    <p class="card-subtitle"><?php echo esc_html($subtitle); ?></p>
-                <?php endif; ?>
-            </div>
-            <?php
-        endwhile;
-        echo '</div>';
+echo '<div class="cards-grid">';
+while ($query->have_posts()) : $query->the_post();
+    $icon     = get_post_meta(get_the_ID(), '_card_icon', true);
+    $subtitle = get_post_meta(get_the_ID(), '_card_subtitle', true);
+    $color    = get_post_meta(get_the_ID(), '_card_color', true);
+
+    echo '<div class="card-item" style="background:' . esc_attr($color ? $color : '#fafafa') . ';">';
+
+    // Detecta Dashicons
+    if (strpos($icon, 'dashicons-') === 0) {
+        echo '<div class="card-icon"><span class="dashicons ' . esc_attr($icon) . '"></span></div>';
+    } else {
+        echo '<div class="card-icon">' . esc_html($icon) . '</div>';
+    }
+
+    echo '<h3 class="card-title">' . get_the_title() . '</h3>';
+
+    if ($subtitle) {
+        echo '<p class="card-subtitle">' . esc_html($subtitle) . '</p>';
+    }
+
+    echo '</div>';
+endwhile;
+echo '</div>';
+
+
+
+
+
+
+
         wp_reset_postdata();
         return ob_get_clean();
     }
