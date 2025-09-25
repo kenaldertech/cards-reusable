@@ -19,7 +19,7 @@ You can display them **by ID or by category** for maximum flexibility.
 ### ✨ Features
 - Create **Card Sets** via a custom post type.
 - Each card supports:
-  - Icon (emoji or Dashicon class).
+  - Icon (emoji or Dashicon class or URL).
   - Title.
   - Subtitle/description.
   - Custom background color.
