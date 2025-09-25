@@ -1,4 +1,4 @@
-# Reusable Cards
+# Cards Reusable 
 
 **Contributors:** kenaldertech  
 **Author:** [Kenneth Alvarenga](https://kennethalvarenga.com)  
@@ -13,7 +13,7 @@
 
 ## Description
 
-Reusable Cards is a flexible WordPress plugin that lets you create reusable sets of cards with **icon, title, and subtitle**.  
+Cards Reusable is a flexible WordPress plugin that lets you create reusable sets of cards with **icon, title, and subtitle**.  
 You can display them **by ID or by category** for maximum flexibility.
 
 ### ✨ Features
