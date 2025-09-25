@@ -113,7 +113,7 @@ class ReusableCards {
             return '<p>No cards found.</p>';
         }
 
-        ob_start();
+    ob_start();
 echo '<div class="cards-grid">';
 while ($query->have_posts()) : $query->the_post();
     $icon     = get_post_meta(get_the_ID(), '_card_icon', true);
@@ -122,9 +122,11 @@ while ($query->have_posts()) : $query->the_post();
 
     echo '<div class="card-item" style="background:' . esc_attr($color ? $color : '#fafafa') . ';">';
 
-    // Detecta Dashicons
+    // Detect Dashicons, Images or Emojis/Text
     if (strpos($icon, 'dashicons-') === 0) {
         echo '<div class="card-icon"><span class="dashicons ' . esc_attr($icon) . '"></span></div>';
+    } elseif (preg_match('/\.(jpg|jpeg|png|gif|svg)$/i', $icon) || strpos($icon, 'http') === 0) {
+        echo '<div class="card-icon"><img src="' . esc_url($icon) . '" alt="" style="max-width:60px; height:auto;"></div>';
     } else {
         echo '<div class="card-icon">' . esc_html($icon) . '</div>';
     }
@@ -138,6 +140,8 @@ while ($query->have_posts()) : $query->the_post();
     echo '</div>';
 endwhile;
 echo '</div>';
+
+
 
 
 

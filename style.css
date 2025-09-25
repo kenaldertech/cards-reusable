@@ -61,6 +61,15 @@
   line-height: 1.5;
 }
 
+/* Para imágenes */
+.card-icon img {
+  display: block;
+  margin: 0 auto;       /* centra la imagen */
+  max-width: 80px;      /* controla el ancho máximo */
+  max-height: 80px;     /* controla el alto máximo */
+  object-fit: contain;  /* asegura que no se deforme */
+}
+
 /* Responsive adjustments */
 @media (max-width: 600px) {
   .card-item {
