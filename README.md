@@ -54,14 +54,6 @@ Yes, the cards grid is fully responsive.
 
 ---
 
-## Screenshots
-
-1. Admin view of a card with icon, subtitle, and background color.  
-2. Cards displayed in a responsive grid with icons and text.  
-3. Example of cards grouped by category.  
-
----
-
 ## Changelog
 
 ### 1.1
