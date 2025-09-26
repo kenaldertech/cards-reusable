@@ -157,6 +157,10 @@ echo '</div>';
     public function enqueue_assets() {
         wp_register_style('reusable-cards', plugins_url('style.css', __FILE__));
         wp_enqueue_style('reusable-cards');
+        
+            // Cargar Dashicons en el front-end
+    wp_enqueue_style('dashicons');
+        
     }
 }
 
